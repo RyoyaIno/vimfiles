@@ -1,3 +1,6 @@
+"Ctrl+nでNERDTreeの起動
+nnoremap <silent><C-n> :NERDTree<CR>
+
 "##### 基本設定 #####
 set number " 行番号表示
 set title " ターミナルのタイトルセット

@@ -1,0 +1,13 @@
+[vim用メモ]
+・vimfilesフォルダでvim関連ファイルを管理(https://github.com/RyoyaIno/vimfiles.git)
+・vimLink.shでシンボリックリンクなどの処理を自動化
+
+[参考URL]
+・ドットファイルをGitHubで管理する
+http://nwpct1.hatenablog.com/entry/2014/01/14/214128
+・めんどくせーからvimrcそのままさらす
+http://qiita.com/kotashiratsuka/items/dcd1f4231385dc9c78e7
+・NERDTreeの使い方
+http://qiita.com/zwirky/items/0209579a635b4f9c95ee
+・VimでのPHP開発環境
+http://tti.matrix.jp/blog/2015-05-19/vimでのphp開発環境/
