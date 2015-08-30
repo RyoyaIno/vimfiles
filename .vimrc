@@ -51,43 +51,12 @@ let g:sql_type_default='mysql'
 "##### ステータスバー#####
 set showcmd "ステータスラインにコマンド表示"
 set laststatus=2 "ステータスラインを常に表示
-set statusline+=%<%F "ファイル名表示
-set statusline+=[%{has('multi_byte')&&\&fileencoding!=''?&fileencoding:&encoding}] "文字コード表示
-set statusline+=%r "読込専用かどうか表示
-set statusline+=%= "以下ツールバー右側
-set statusline+=[行%l/%L] "現在文字行/全体列表行
-set statusline+=[列%c/%{col('$')-1}] "現在文字列/全体列表示
-
-"##### 挿入モード時、ステータスラインの色を変更 #####
-let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=darkyellow gui=none ctermfg=blue ctermbg=yellow cterm=none'
-
-if has('syntax')
-  augroup InsertHook
-    autocmd!
-    autocmd InsertEnter * call s:StatusLine('Enter')
-    autocmd InsertLeave * call s:StatusLine('Leave')
-  augroup END
-endif
-
-let s:slhlcmd = ''
-function! s:StatusLine(mode)
-  if a:mode == 'Enter'
-    silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
-    silent exec g:hi_insert
-  else
-    highlight clear StatusLine
-    silent exec s:slhlcmd
-  endif
-endfunction
-
-function! s:GetHighlight(hi)
-  redir => hl
-  exec 'highlight '.a:hi
-  redir END
-  let hl = substitute(hl, '[\r\n]', '', 'g')
-  let hl = substitute(hl, 'xxx', '', '')
-  return hl
-endfunction
+"set statusline+=%<%F "ファイル名表示
+"set statusline+=[%{has('multi_byte')&&\&fileencoding!=''?&fileencoding:&encoding}] "文字コード表示
+"set statusline+=%r "読込専用かどうか表示
+"set statusline+=%= "以下ツールバー右側
+"set statusline+=[行%l/%L] "現在文字行/全体列表行
+"set statusline+=[列%c/%{col('$')-1}] "現在文字列/全体列表示
 
 "##### プラグイン #####
 filetype plugin indent off
@@ -223,9 +192,9 @@ let g:neocomplete_php_locale = 'ja'
 "##### 文法チェック #####
 NeoBundle 'scrooloose/syntastic'
 "Recommended settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -242,6 +211,25 @@ function! s:syntastic()
     w
     SyntasticCheck
 endfunction
+
+NeoBundle 'itchyny/lightline.vim'
+let g:lightline = {
+	\ 'colorscheme': 'wombat',
+	\ 'active': {
+	\	'left': [ [ 'mode', 'paste' ],
+	\			  [ 'figitive', 'readonly', 'filename', 'modified', 'syntax' ]]
+	\ },
+	\ 'component': {
+	\   'readonly': '%{&filetype=="help"?"":&readonly?"RO":""}',
+	\   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+	\   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}',
+	\	'syntax': '%#warningmsg#ERROR>>%{SyntasticStatuslineFlag()}%*'
+	\ }
+	\ }
+augroup reload_vimrc
+	autocmd!
+	autocmd bufwritepost $MYVIMRC nested source $MYVIMRC
+augroup end
 
 call neobundle#end()
 filetype plugin indent on
