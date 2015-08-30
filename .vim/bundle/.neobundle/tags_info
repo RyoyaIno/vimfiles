@@ -4,5 +4,6 @@ neocomplete-php
 neosnippet
 neosnippet-snippets
 nerdtree
+syntastic
 vim-autoclose
 vimproc

@@ -89,7 +89,7 @@ function! s:GetHighlight(hi)
   return hl
 endfunction
 
-"##### Neobundle #####
+"##### プラグイン #####
 filetype plugin indent off
 if has('vim_starting')
 	if &compatible
@@ -100,13 +100,17 @@ endif
 call neobundle#begin(expand('~/vimfiles/.vim/bundle/'))
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
-" 非同期通信処理
+
+" ##### 非同期通信処理#####
 NeoBundle 'Shougo/vimproc'
-" ディレクトリツリー表示
+
+"##### ディレクトリツリー表示 #####
 NeoBundle 'scrooloose/nerdtree'
-" カッコなどの自動閉じ
+
+"##### カッコ自動閉じ#####
 NeoBundle 'Townk/vim-autoclose'
-" 補間機能
+
+"##### 補間機能 #####
 NeoBundle 'Shougo/neocomplete'
 "NeoBundle 'Shougo/neocomplcache'
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
@@ -192,6 +196,8 @@ endif
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+"##### neosnippet #####
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 " Plugin key-mappings.
@@ -209,8 +215,34 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 if has('conceal')
 	set conceallevel=2 concealcursor=niv
 endif
+
+"##### neocomplete-php #####
 NeoBundle 'violetyk/neocomplete-php'
 let g:neocomplete_php_locale = 'ja'
+
+"##### 文法チェック #####
+NeoBundle 'scrooloose/syntastic'
+"Recommended settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+"Auto check
+let g:syntastic_enable_signs=1
+let g:syntastic_auto_loc_list=2
+let g:syntastic_mode_map = {'mode': 'passive'} 
+augroup AutoSyntastic
+    autocmd!
+    autocmd InsertLeave,TextChanged * call s:syntastic() 
+augroup END
+function! s:syntastic()
+    w
+    SyntasticCheck
+endfunction
+
 call neobundle#end()
 filetype plugin indent on
 NeoBundleCheck
