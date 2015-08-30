@@ -1,6 +1,11 @@
 [vim用メモ]
 ・vimfilesフォルダでvim関連ファイルを管理(https://github.com/RyoyaIno/vimfiles.git)
 ・vimLink.shでシンボリックリンクなどの処理を自動化
+・neocompleteを使うためにはHonmebrew等で+lua設定のvimを入れる。
+   - brew install vim --with-lua (vimのインストール)
+   - brew install mvim --with-lua (MacVimのインストール)
+・neocomplete-phpは「:PhpMakeDict ja」を実行する
+
 
 [参考URL]
 ・ドットファイルをGitHubで管理する
@@ -11,3 +16,7 @@ http://qiita.com/kotashiratsuka/items/dcd1f4231385dc9c78e7
 http://qiita.com/zwirky/items/0209579a635b4f9c95ee
 ・VimでのPHP開発環境
 http://tti.matrix.jp/blog/2015-05-19/vimでのphp開発環境/
+・vimのPHP開発環境
+http://kaworu.jpn.org/vim/vimのPHP開発環境
+・neocomplete
+http://cpp0302.hatenablog.com/entry/2015/04/10/033609

@@ -1,4 +1,8 @@
 neobundle.vim
+neocomplete
+neocomplete-php
+neosnippet
+neosnippet-snippets
 nerdtree
 vim-autoclose
 vimproc
