@@ -28,6 +28,7 @@ set backspace=indent,eol,start " バックスペースをどこでも使える�
 "set directory=~/.vim
 "set backupdir=~/.vim
 "set undodir=~/.vim
+set noswapfile "swpファイルを生成しない
 set nobackup "バックアップを取らない
 
 "##### 検索 #####
