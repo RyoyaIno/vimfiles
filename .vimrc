@@ -25,9 +25,10 @@ set virtualedit=block " 文字のないところにカーソル移動
 set backspace=indent,eol,start " バックスペースをどこでも使えるように
 
 "##### バックアップ場所 #####
-set directory=~/.vim
-set backupdir=~/.vim
-set undodir=~/.vim
+"set directory=~/.vim
+"set backupdir=~/.vim
+"set undodir=~/.vim
+set nobackup "バックアップを取らない
 
 "##### 検索 #####
 set incsearch "インクリメンタルサーチを有効に
