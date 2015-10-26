@@ -15,8 +15,9 @@ set fileencodings=iso-2022-jp,cp932,sjis,euc-jp,utf-8 "自動文字コード識�
 
 "##### インデント #####
 set tabstop=4 " タブ幅
-set smartindent " オートインデント
+"set smartindent " 現在は非推奨
 set autoindent " オートインデント
+set shiftwidth=4 "インデントする文字数
 
 "##### カーソル #####
 "set cursorline "カーソルラインの表示
