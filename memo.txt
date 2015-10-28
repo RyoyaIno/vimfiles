@@ -6,6 +6,8 @@
    - brew install mvim --with-lua (MacVimのインストール)
 ・neocomplete-phpは「:PhpMakeDict ja」を実行する
 
+[予備知識]
+・「set smartindent」は非推奨なので「set autoindent」を使うこと
 
 [参考URL]
 ・ドットファイルをGitHubで管理する
