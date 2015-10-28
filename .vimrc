@@ -1,5 +1,13 @@
 "Ctrl+nでNERDTreeの起動
 nnoremap <silent><C-n> :NERDTree<CR>
+"Control+jでescape
+inoremap <C-j> <esc>
+vnoremap <C-j> <esc>
+"Shit+←or→でVisiualモードへ
+inoremap <S-Left> <esc>v
+inoremap <S-Right> <esc>v
+nnoremap <S-Left> <esc>v
+nnoremap <S-Right> <esc>v
 
 "##### 基本設定 #####
 set number " 行番号表示
@@ -17,6 +25,8 @@ set fileencodings=iso-2022-jp,cp932,sjis,euc-jp,utf-8 "自動文字コード識�
 set tabstop=4 " タブ幅
 set autoindent " オートインデント
 set shiftwidth=4 "インデントする文字数
+"set list
+"set listchars=tab:>.,trail:_,eol:↲,extends:>,precedes:<,nbsp:%
 
 "##### カーソル #####
 "set cursorline "カーソルラインの表示
