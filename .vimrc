@@ -217,12 +217,13 @@ let g:syntastic_auto_loc_list=2
 let g:syntastic_mode_map = {'mode': 'passive'} 
 augroup AutoSyntastic
     autocmd!
-    autocmd InsertLeave,TextChanged * call s:syntastic() 
+	autocmd InsertLeave,TextChanged *.php,*.rb,*.js,*.java,*.c,*.cpp call s:syntastic() 
 augroup END
 "ノーマルモードに移行時の処理
 function! s:syntastic()
 	"w
     SyntasticCheck
+	call lightline#update()
 endfunction
 
 NeoBundle 'itchyny/lightline.vim'
@@ -230,13 +231,18 @@ let g:lightline = {
 	\ 'colorscheme': 'wombat',
 	\ 'active': {
 	\	'left': [ [ 'mode', 'paste' ],
-	\			  [ 'figitive', 'readonly', 'filename', 'modified', 'syntax' ]]
+	\			  [ 'figitive', 'readonly', 'filename', 'modified', 'syntastic' ]]
 	\ },
 	\ 'component': {
 	\   'readonly': '%{&filetype=="help"?"":&readonly?"RO":""}',
 	\   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-	\   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}',
-	\	'syntax': '%#warningmsg#ERROR>>%{SyntasticStatuslineFlag()}%*'
+	\   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+	\ },
+	\ 'component_expand': {	
+	\	'syntastic': 'SyntasticStatuslineFlag'
+	\  },
+	\ 'component_type': {
+	\ 	'syntastic': 'error'
 	\ }
 	\ }
 augroup reload_vimrc
