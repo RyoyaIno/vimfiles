@@ -61,7 +61,7 @@ let php_parent_error_close = 1
 let g:sql_type_default='mysql'
 
 "##### ステータスバー#####
-set showcmd "ステータスラインにコマンド表示"
+set showcmd "ステータスラインにコマンド表示
 set laststatus=2 "ステータスラインを常に表示
 "set statusline+=%<%F "ファイル名表示
 "set statusline+=[%{has('multi_byte')&&\&fileencoding!=''?&fileencoding:&encoding}] "文字コード表示
@@ -76,9 +76,9 @@ if has('vim_starting')
 	if &compatible
 		set nocompatible
 	endif
-	set runtimepath+=~/vimfiles/.vim/bundle/neobundle.vim
+	set runtimepath+=~/.vim/bundle/neobundle.vim
 endif
-call neobundle#begin(expand('~/vimfiles/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/'))
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
 
@@ -219,8 +219,9 @@ augroup AutoSyntastic
     autocmd!
     autocmd InsertLeave,TextChanged * call s:syntastic() 
 augroup END
+"ノーマルモードに移行時の処理
 function! s:syntastic()
-    w
+	"w
     SyntasticCheck
 endfunction
 
