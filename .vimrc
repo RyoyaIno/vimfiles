@@ -25,8 +25,8 @@ set fileencodings=iso-2022-jp,cp932,sjis,euc-jp,utf-8 "自動文字コード識�
 set tabstop=4 " タブ幅
 set autoindent " オートインデント
 set shiftwidth=4 "インデントする文字数
-"set list
-"set listchars=tab:>.,trail:_,eol:↲,extends:>,precedes:<,nbsp:%
+set list
+set listchars=tab:>_,trail:_,eol:↲,extends:>,precedes:<
 
 "##### カーソル #####
 "set cursorline "カーソルラインの表示
