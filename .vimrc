@@ -24,6 +24,7 @@ set fileencodings=iso-2022-jp,cp932,sjis,euc-jp,utf-8 "自動文字コード識�
 "##### インデント #####
 set tabstop=4 " タブ幅
 set autoindent " オートインデント
+set expandtab
 set shiftwidth=4 "インデントする文字数
 set list
 set listchars=tab:>_,trail:_,eol:↲,extends:>,precedes:<
